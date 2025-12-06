@@ -151,6 +151,11 @@ header > .header-right > nav > ul {
     }
   }
 }
+
+footer {
+  background-color: #375; /* FIXME: 存在を認知するために色をつけた */
+  height: var(--size-footer);
+}
 </style>
 
 <!-- FIXME: モバイル対応、普通に文字のあるページでヘッダー分下げる -->
@@ -169,10 +174,13 @@ header > .header-right > nav > ul {
         <li><a href='/activity/'>ACTIVITY</a></li> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
         <li><a href='/contact/'>CONTACT</a></li>
         <li><a href='/news/' title='最新のお知らせ一覧'>NEWS</a></li>
-        <li><a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ' target="_blank" rel="noopener noreferrer">[Instagram LOGO]</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 {@render children()}
+
+<footer>
+  <li><a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ' target="_blank" rel="noopener noreferrer">[Instagram LOGO]</a></li>
+</footer>

@@ -2,6 +2,8 @@
   --color-main: #0077A8;
   --color-accent: #E8C27A;
   --color-aux: #6D8B5D;
+
+  --size-footer: 100px;
 }
 
 body {
