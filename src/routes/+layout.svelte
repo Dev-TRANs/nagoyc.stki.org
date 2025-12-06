@@ -100,7 +100,7 @@ header {
 headerの中身
 
   <div class='lang-en'>
-    <a href='/'>ABOUT</a> <!-- FIXME: 仮 -->
+    <a href='/about/'>ABOUT</a> <!-- FIXME: 仮 -->
     <a href='/photo-contest/' title='フォトコンテストを見る'>PHOTO CONTEST</a>
     <a href='/short-movies/' title='動画を見る'>SHORT MOVIES</a>
     <a href='/routes/' title='観光ルートを見る'>ROUTES</a>
