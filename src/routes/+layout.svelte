@@ -100,14 +100,14 @@ header {
 headerの中身
 
   <div class='lang-en'>
-    <a>ABOUT</a>
-    <a title='フォトコンテストを見る'>PHOTO CONTEST</a>
-    <a title='動画を見る'>SHORT MOVIES</a>
-    <a title='観光ルートを見る'>ROUTES</a>
-    <a>ACTIVITY</a>
-    <a>CONTACT</a>
-    <a title='最新のお知らせ一覧'>NEWS</a>
-    <a title='Instagramへ'>[Instagram LOGO]</a>
+    <a href='/'>ABOUT</a> <!-- FIXME: 仮 -->
+    <a href='/photo-contest/' title='フォトコンテストを見る'>PHOTO CONTEST</a>
+    <a href='/short-movies/' title='動画を見る'>SHORT MOVIES</a>
+    <a href='/routes/' title='観光ルートを見る'>ROUTES</a>
+    <a href='/activity/'>ACTIVITY</a> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
+    <a href='/contact/'>CONTACT</a>
+    <a href='/news/' title='最新のお知らせ一覧'>NEWS</a>
+    <a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ'>[Instagram LOGO]</a>
   </div>
 </header>
 

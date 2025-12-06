@@ -1,0 +1,6 @@
+git grep FIXME:
+git grep TODO:
+
+OGP
+
+ルートを / で終わるように正規化
