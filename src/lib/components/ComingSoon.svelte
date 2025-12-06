@@ -1,1 +1,1 @@
-<h1>Coming Soon...</h1>
+<h1 class='lang-en'>Coming Soon...</h1>
