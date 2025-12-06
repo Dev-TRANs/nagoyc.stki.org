@@ -17,6 +17,7 @@ header {
 
   padding: 0 30px;
 
+  /* トップページは浮かせたいのでstickyではない */
   position: fixed;
   top: 0;
   left: 0;
@@ -31,7 +32,22 @@ header {
   background-color: #77c5;
 }
 
-header {
+header > .header-left {
+
+}
+
+header > .header-right {
+
+}
+
+header > .header-right > nav > ul {
+  display: flex;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+
   a {
     /* TODO: カラーコード直書きやめる */
     color: #eee;
@@ -93,21 +109,69 @@ header {
     color: #fff;
   }
 }
+
+#nav-toggle {
+  display: none;
+}
+
+@media (min-width: 1050px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header > .header-right > nav > ul {
+    flex-flow: row;
+  }
+}
+
+@media (max-width: 1049px){
+  .nav-toggle-label {
+    display: inline-block;
+  }
+
+  header > .header-right > nav > ul {
+    flex-flow: column;
+    padding: 0 30px;
+  }
+
+  header > .header-right > nav {
+    display: none;
+  }
+
+  #nav-toggle:checked ~ nav {
+    display: flex;
+    background-color: #7c75; /* FIXME: */
+
+    position: absolute;
+    top: 70px;
+    right: 0;
+
+    li {
+      height: 50px;
+    }
+  }
+}
 </style>
 
 <!-- FIXME: モバイル対応、普通に文字のあるページでヘッダー分下げる -->
 <header class='lang-en'>
-headerの中身
+  <div class='header-left'><a href='/'>GOTO /</a></div>
 
-  <div class='lang-en'>
-    <a href='/about/'>ABOUT</a> <!-- FIXME: 仮 -->
-    <a href='/photo-contest/' title='フォトコンテストを見る'>PHOTO CONTEST</a>
-    <a href='/short-movies/' title='動画を見る'>SHORT MOVIES</a>
-    <a href='/routes/' title='観光ルートを見る'>ROUTES</a>
-    <a href='/activity/'>ACTIVITY</a> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
-    <a href='/contact/'>CONTACT</a>
-    <a href='/news/' title='最新のお知らせ一覧'>NEWS</a>
-    <a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ' target="_blank" rel="noopener noreferrer">[Instagram LOGO]</a>
+  <div class='header-right'>
+    <input type='checkbox' id='nav-toggle' />
+    <label class='nav-toggle-label' for='nav-toggle'>開く</label>
+    <nav class='lang-en'>
+      <ul>
+        <li><a href='/about/'>ABOUT</a></li> <!-- FIXME: 仮 -->
+        <li><a href='/photo-contest/' title='フォトコンテストを見る'>PHOTO CONTEST</a></li>
+        <li><a href='/short-movies/' title='動画を見る'>SHORT MOVIES</a></li>
+        <li><a href='/routes/' title='観光ルートを見る'>ROUTES</a></li>
+        <li><a href='/activity/'>ACTIVITY</a></li> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
+        <li><a href='/contact/'>CONTACT</a></li>
+        <li><a href='/news/' title='最新のお知らせ一覧'>NEWS</a></li>
+        <li><a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ' target="_blank" rel="noopener noreferrer">[Instagram LOGO]</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
