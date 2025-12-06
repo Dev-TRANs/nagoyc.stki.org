@@ -107,7 +107,7 @@ headerの中身
     <a href='/activity/'>ACTIVITY</a> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
     <a href='/contact/'>CONTACT</a>
     <a href='/news/' title='最新のお知らせ一覧'>NEWS</a>
-    <a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ'>[Instagram LOGO]</a>
+    <a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ' target="_blank" rel="noopener noreferrer">[Instagram LOGO]</a>
   </div>
 </header>
 
