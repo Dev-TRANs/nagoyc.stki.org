@@ -143,7 +143,7 @@ header > .header-right > nav > ul {
     background-color: #7c75; /* FIXME: */
 
     position: absolute;
-    top: 70px;
+    top: 100%;
     right: 0;
 
     li {
@@ -159,7 +159,7 @@ header > .header-right > nav > ul {
 
   <div class='header-right'>
     <input type='checkbox' id='nav-toggle' />
-    <label class='nav-toggle-label' for='nav-toggle'>開く</label>
+    <label class='nav-toggle-label' for='nav-toggle' aria-label='メニューを開閉する'><div class='hamburger'></div></label>
     <nav class='lang-en'>
       <ul>
         <li><a href='/about/'>ABOUT</a></li> <!-- FIXME: 仮 -->
