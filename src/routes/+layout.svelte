@@ -50,7 +50,7 @@ header > .header-left {
 header > .header-right {
   background-color: #77c4;
   border-radius: 15px;
-  padding: 0 15px;
+  height: 60px;
 
   transition: background-color 0.2s;
 
@@ -138,14 +138,32 @@ header > .header-right > nav > ul {
     display: none;
   }
 
-  header > .header-right > nav > ul {
+  header > .header-right > nav {
+    margin: 0 15px;
+
+    & > ul {
     flex-flow: row;
+    }
   }
 }
 
 @media (max-width: 1049px){
   .nav-toggle-label {
-    display: inline-block;
+    height: 60px;
+    width: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .hamburger {
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      /* position: absolute; */
+    }
   }
 
   header > .header-right > nav > ul {
