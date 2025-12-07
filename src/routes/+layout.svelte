@@ -161,9 +161,9 @@ footer {
     height: 50px;
     width: 50px;
 
-    background-color: #777;
+    background-color: transparent;
     box-sizing: content-box;
-    border: 7px solid #777;
+    border: 25px solid transparent;
     border-radius: 7px;
     display: block;
 
