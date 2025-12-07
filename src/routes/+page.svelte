@@ -108,11 +108,11 @@ let slideIndex = $state(0);
   border-radius: 50%;
   height: 13px;
   width: 13px;
-  border: 2px solid #55a; /* FIXME: 適当な色 */
+  border: 2px solid #66b9; /* FIXME: 適当な色 */
 
   &.active {
-    border-color: #5a5;
-    background-color: #373;
+    border-color: #66be;
+    background-color: #66b7;
   }
 }
 
@@ -170,7 +170,7 @@ main {
 
   </div>
   <div class='arrow-down'><!-- スクロールのマーカー --></div>
-  <!-- スライド用 -->
+  <!-- スライド用、TODO: 自動切り替え -->
   <button type='button' class='slide-move' onclick={() => { slideElm?.style.setProperty('--current-slide', String(slideIndex > 0 ? --slideIndex : slideIndex=totalSlides-1)) }} aria-label='前の画像に移動'><div class='arrow-left'></div></button>
   <button type='button' class='slide-move' onclick={() => { slideElm?.style.setProperty('--current-slide', String(slideIndex < totalSlides-1 ? ++slideIndex : slideIndex=0)) }} aria-label='次の画像に移動'><div class='arrow-right'></div></button>
   <div class='slide-sel'>{#each Array(totalSlides) as _, i}
