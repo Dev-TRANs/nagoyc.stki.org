@@ -1,5 +1,6 @@
 <script lang="ts">
 import favicon from '$lib/assets/favicon.png';
+import Instagram_Glyph_White from '$lib/assets/Instagram_Glyph_White.svg';
 import '../app.css';
 
 let { children } = $props();
@@ -155,6 +156,22 @@ header > .header-right > nav > ul {
 footer {
   background-color: #375; /* FIXME: 存在を認知するために色をつけた */
   height: var(--size-footer);
+
+  .ig-icon {
+    height: 50px;
+    width: 50px;
+
+    background-color: #777;
+    box-sizing: content-box;
+    border: 7px solid #777;
+    border-radius: 7px;
+    display: block;
+
+    img {
+      max-width: 50px;
+      height: auto;
+    }
+  }
 }
 </style>
 
@@ -182,5 +199,7 @@ footer {
 {@render children()}
 
 <footer>
-  <li><a href='https://www.instagram.com/[ここにユーザー名]' title='Instagramへ' target="_blank" rel="noopener noreferrer">[Instagram LOGO]</a></li>
+  <a href='https://www.instagram.com/nagocity_yc' title='Instagramへ' target='_blank' rel='noopener noreferrer' class='ig-icon'>
+    <img src={Instagram_Glyph_White} alt='Instagramのアイコン'  />
+  </a>
 </footer>
