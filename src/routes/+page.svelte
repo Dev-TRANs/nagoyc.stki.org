@@ -135,6 +135,10 @@ let slideIndex = $state(0);
   align-items: center;
   text-align: center;
 }
+
+main {
+  margin: 0 var(--size-main-margin-lr);
+}
 </style>
 
 <Title />
@@ -171,16 +175,17 @@ let slideIndex = $state(0);
   <button type='button' class='slide-move' onclick={() => { slideElm?.style.setProperty('--current-slide', String(slideIndex < totalSlides-1 ? ++slideIndex : slideIndex=0)) }} aria-label='次の画像に移動'><div class='arrow-right'></div></button>
   <div class='slide-sel'>{#each Array(totalSlides) as _, i}
     <button class={[i === slideIndex && 'active']} onclick={() => slideElm?.style.setProperty('--current-slide', String(slideIndex=i))} aria-label={`${i + 1}枚目の画像へ移動`}></button>
-
   {/each}</div>
 
   <h1 class='catchphrase lang-ja'>高校生から発信する、新しい名護</h1>
 </div>
 
+<main>
 <div class='lang-en'>
 <h2>私たちについて</h2>
-<p>Nagocity Youth Creative は、名護市の魅力を高校生の視点で発信し、</p>
+<p><span class='lang-en'>Nagocity Youth Creative</span> は、名護市の魅力を高校生の視点で発信し、</p>
 <p>観光促進・地域活性化・若者の地域参画を推進することを目的とした学生団体です。</p>
 <p>写真、動画、観光ルート制作など、クリエイティブな手法を活用し、</p>
 <p>名護の新しい魅力を市内外へ届ける活動を行っています。</p>
 </div>
+</main>

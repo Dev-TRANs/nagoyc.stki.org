@@ -193,6 +193,24 @@ footer {
   background-color: #375; /* FIXME: 存在を認知するために色をつけた */
   height: var(--size-footer);
 
+  display: grid;
+  grid-template:
+    "t s" 50%
+    "c s" 50%
+    / 50% 50%;
+
+  .title {
+    grid-area: t;
+  }
+
+  .sns {
+    grid-area: s;
+  }
+
+  .copyright {
+    grid-area: c;
+  }
+
   .ig-icon {
     height: 50px;
     width: 50px;
@@ -235,7 +253,11 @@ footer {
 {@render children()}
 
 <footer>
-  <a href='https://www.instagram.com/nagocity_yc' title='Instagramへ' target='_blank' rel='noopener noreferrer' class='ig-icon'>
-    <img src={Instagram_Glyph_White} alt='Instagramのアイコン'  />
-  </a>
+  <div class='lang-en title'>Nagocity Youth Creative</div>
+  <div class='lang-en sns'>
+    <a href='https://www.instagram.com/nagocity_yc' title='Instagramへ' target='_blank' rel='noopener noreferrer' class='ig-icon'>
+      <img src={Instagram_Glyph_White} alt='Instagramのアイコン'  />
+    </a>
+  </div>
+  <div class='lang-en copyright'>© 2025 <a href='https://trans.stki.org/'>TRANs</a>, Nagocity Youth Creative</div>
 </footer>
