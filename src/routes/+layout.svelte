@@ -204,6 +204,8 @@ footer {
     /* align-items: center; */
     /* justify-content: space-between; */
     text-align: center;
+    color: #eee;
+    margin: auto;
   }
 
   .title {
