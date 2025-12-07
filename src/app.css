@@ -29,6 +29,29 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+
+/* グローバルaタグ */
+
+a {
+    color: unset;
+    text-decoration: underline;
+}
+
+a:link {
+}
+
+a:visited {
+}
+
+a:focus {
+}
+
+a:hover {
+}
+
+a:active {
+}
+
 /* CSS simple UI Components (TM) */
 
 /* 下向き三角形 */
