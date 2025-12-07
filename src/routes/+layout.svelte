@@ -199,6 +199,13 @@ footer {
     "c s" 50%
     / 50% 50%;
 
+  & > * {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    text-align: center;
+  }
+
   .title {
     grid-area: t;
   }
