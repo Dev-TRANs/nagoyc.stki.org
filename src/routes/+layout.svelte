@@ -268,5 +268,5 @@ footer {
       <img src={Instagram_Glyph_White} alt='Instagramのアイコン'  />
     </a>
   </div>
-  <div class='lang-en copyright'>© 2025 <a href='https://trans.stki.org/'>TRANs</a>, Nagocity Youth Creative</div>
+  <div class='lang-en copyright'>© 2025 Nagocity Youth Creative, <a href='https://trans.stki.org/'>TRANs</a></div>
 </footer>
