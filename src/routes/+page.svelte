@@ -28,7 +28,7 @@ let slideIndex = $state(0);
   flex-shrink: 0;
 }
 
-.slide > img {
+.slide > img,enhanced\:img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -137,14 +137,27 @@ let slideIndex = $state(0);
 <div class='main-visual'>
   <div class='slide-container' bind:this={slideElm}>
     <div class='slide'>
-      <img src='https://dummyimage.com/1980x1080/000/fff' alt='DUMMY, main visual 1' />
+      <enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' />
     </div>
     <div class='slide'>
-      <img src='https://dummyimage.com/1980x1080/ddd/aaa' alt='DUMMY, main visual 2' />
+      <enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' />
     </div>
     <div class='slide'>
-      <img src='https://dummyimage.com/1980x1080/555/ccc' alt='DUMMY, main visual 3' />
+      <enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' />
     </div>
+    <div class='slide'>
+      <enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' />
+    </div>
+    <div class='slide'>
+      <enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' />
+    </div>
+    <div class='slide'>
+      <enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' />
+    </div>
+    <div class='slide'>
+      <enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' />
+    </div>
+
   </div>
   <div class='arrow-down'><!-- スクロールのマーカー --></div>
   <!-- スライド用 -->
