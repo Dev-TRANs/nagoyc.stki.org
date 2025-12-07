@@ -122,12 +122,13 @@ let slideIndex = $state(0);
   width: 90%;
   z-index: 500;
 
-  font-size: xxx-large;
+  font-size: 4rem;
   color: #eee;
-  text-shadow: 0 0 5px var(--color-accent);
+  text-shadow: 0 0 1.5rem var(--color-accent);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 </style>
 
