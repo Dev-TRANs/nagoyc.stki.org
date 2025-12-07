@@ -34,6 +34,16 @@ header {
 }
 
 header > .header-left {
+  .gototop {
+    display: block;
+    width: 60px;
+    height: 60px;
+
+    enhanced\:img {
+      width: 60px;
+      height: 60px;
+    }
+  }
 
 }
 
@@ -177,7 +187,7 @@ footer {
 
 <!-- FIXME: モバイル対応、普通に文字のあるページでヘッダー分下げる -->
 <header class='lang-en'>
-  <div class='header-left'><a href='/'>GOTO /</a></div>
+  <div class='header-left'><a href='/' aria-label='トップページへ' class='gototop'><enhanced:img src='$lib/assets/favicon.png' alt='favicon'></enhanced:img></a></div>
 
   <div class='header-right'>
     <input type='checkbox' id='nav-toggle' />

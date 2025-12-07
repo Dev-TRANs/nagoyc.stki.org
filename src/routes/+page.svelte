@@ -28,7 +28,7 @@ let slideIndex = $state(0);
   flex-shrink: 0;
 }
 
-.slide > img,enhanced\:img {
+.slide > enhanced\:img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -45,21 +45,26 @@ let slideIndex = $state(0);
 }
 
 .slide-move {
-  height: 100lvh;
+  height: 50lvh;
   width: 70px;
   position: absolute;
   top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 15px;
 
   background-color: unset;
   border: unset;
   padding: unset;
 
+  transition: background-color 0.3s;
+
   &:has(.arrow-left) {
-    left: 0;
+    left: 15px;
   }
 
   &:has(.arrow-right) {
-    right: 0;
+    right: 15px;
   }
 
   &:hover {
@@ -170,4 +175,12 @@ let slideIndex = $state(0);
   {/each}</div>
 
   <h1 class='catchphrase lang-ja'>高校生から発信する、新しい名護</h1>
+</div>
+
+<div class='lang-en'>
+<h2>私たちについて</h2>
+<p>Nagocity Youth Creative は、名護市の魅力を高校生の視点で発信し、</p>
+<p>観光促進・地域活性化・若者の地域参画を推進することを目的とした学生団体です。</p>
+<p>写真、動画、観光ルート制作など、クリエイティブな手法を活用し、</p>
+<p>名護の新しい魅力を市内外へ届ける活動を行っています。</p>
 </div>
