@@ -30,7 +30,7 @@ header {
 
   /* TODO: 消す*/
   color: white;
-  background-color: #77c5;
+  /* background-color: #77c5; */
 }
 
 header > .header-left {
@@ -48,7 +48,15 @@ header > .header-left {
 }
 
 header > .header-right {
+  background-color: #77c4;
+  border-radius: 15px;
+  padding: 0 15px;
 
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #77c6;
+  }
 }
 
 header > .header-right > nav > ul {

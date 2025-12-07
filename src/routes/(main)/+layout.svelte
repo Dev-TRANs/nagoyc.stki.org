@@ -4,8 +4,8 @@ let { children } = $props();
 
 <style>
 main {
-  margin: 80px 30px 0;
-  min-height: calc(100vh - 80px - var(--size-footer));
+  margin: 100px 30px 0;
+  min-height: calc(100vh - 100px - var(--size-footer));
 }
 </style>
 
