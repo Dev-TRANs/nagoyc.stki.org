@@ -28,7 +28,7 @@ let slideIndex = $state(0);
   flex-shrink: 0;
 }
 
-.slide > enhanced\:img {
+.slide > img,enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
   width: 100%;
   height: 100%;
   object-fit: cover;
