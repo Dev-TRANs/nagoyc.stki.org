@@ -1,3 +1,6 @@
 # allow crawling everything by default
+
+
+# FIXME: 開発中は全拒否
 User-agent: *
-Disallow:
+Disallow: /
