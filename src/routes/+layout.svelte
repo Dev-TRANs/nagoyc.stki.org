@@ -19,7 +19,7 @@ header {
   padding: 0 30px;
 
   /* トップページは浮かせたいのでstickyではない */
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -190,7 +190,8 @@ header > .header-right > nav > ul {
 }
 
 footer {
-  background-color: #375; /* FIXME: 存在を認知するために色をつけた */
+  /* background-color: #375; */ /* FIXME: 存在を認知するために色をつけた */
+  background-color: var(--color-main);
   height: var(--size-footer);
 
   display: grid;
@@ -243,6 +244,7 @@ footer {
   <div class='header-left'><a href='/' aria-label='トップページへ' class='gototop'><enhanced:img src='$lib/assets/favicon.png' alt='favicon'></enhanced:img></a></div>
 
   <div class='header-right'>
+    <span style='position:absolute; font-size: large; bottom: -50px;'>↑ 絶対に修正する必要のあるヘッダー</span>
     <input type='checkbox' id='nav-toggle' />
     <label class='nav-toggle-label' for='nav-toggle' aria-label='メニューを開閉する'><div class='hamburger'></div></label>
     <nav class='lang-en'>

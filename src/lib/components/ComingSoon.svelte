@@ -3,11 +3,12 @@
   display: flex;
 }
 
-h1 {
+.content {
   margin: auto;
+  font-size: xx-large;
 }
 </style>
 
 <div class='box'>
-  <h1 class='lang-en'>Coming Soon...</h1>
+  <div class='lang-en content'>Coming Soon...</div>
 </div>

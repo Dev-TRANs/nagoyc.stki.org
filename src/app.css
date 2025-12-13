@@ -29,6 +29,25 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  color: var(--color-main);
+  /* border-bottom: solid 2px orange; */
+  position: relative;
+  margin-bottom: 30px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background: var(--color-accent);
+    /* https://zenn.dev/helloiamktn/articles/f03c6d950e7a0a */
+    border-radius: 100vmax;
+  }
+}
 
 /* グローバルaタグ */
 

@@ -6,6 +6,7 @@ let { children } = $props();
 main {
   margin: 100px var(--size-main-margin-lr) 0;
   min-height: calc(100vh - 100px - var(--size-footer));
+  text-align: center;
 }
 </style>
 

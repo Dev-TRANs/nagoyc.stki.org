@@ -1,9 +1,27 @@
+<!--
+① トップページ（HOME）
+    •    メインビジュアル（名護の海・夕日・自然）
+    •    キャッチコピー：「高校生から発信する、新しい名護」
+    •    NYCの紹介（簡易）
+    •    ヘッダーボタン⬇️
+　・フォトコンを見る
+     ・動画を見る
+　・観光ルートを見る
+　・Instagramへ
+    •    最新のお知らせ一覧
+⬆️までボタン
+-->
+
 <script lang="ts">
 import Title from '$lib/components/Title.svelte';
 
 let slideElm: HTMLDivElement|undefined = $state();
 let totalSlides = $derived<number>(slideElm?.children.length ?? 0);
 let slideIndex = $state(0);
+
+setInterval(() => {
+  slideElm?.style.setProperty('--current-slide', String(slideIndex < totalSlides-1 ? ++slideIndex : slideIndex=0));
+}, 5000);
 </script>
 
 <style>
@@ -69,6 +87,10 @@ let slideIndex = $state(0);
 
   &:hover {
     background-color: #7775;
+
+    .arrow-left,.arrow-right {
+      --color: #999;
+    }
   }
 }
 
@@ -76,7 +98,8 @@ let slideIndex = $state(0);
   position: absolute;
   margin: auto;
   z-index: 420;
-  --color: #999;
+  --color: #9997;
+  transition: border-color 0.3s;
 }
 
 .main-visual .arrow-left {
@@ -118,8 +141,8 @@ let slideIndex = $state(0);
 
 .main-visual > .catchphrase {
   position: absolute;
-  top: 20%;
-  bottom: 20%;
+  top: 35%;
+  bottom: 35%;
   left: 5%;
   right: 5%;
   /* margin: auto; */
@@ -128,8 +151,11 @@ let slideIndex = $state(0);
   z-index: 500;
 
   font-size: 4rem;
+  font-weight: bold;
   color: #eee;
   text-shadow: 0 0 1.5rem var(--color-accent);
+  /* background-color: #0007; */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,7 +163,9 @@ let slideIndex = $state(0);
 }
 
 main {
-  margin: 0 var(--size-main-margin-lr);
+  /* (main)/+lauout.svelteと重複してる */
+  margin: 50px var(--size-main-margin-lr);
+  text-align: center;
 }
 </style>
 
@@ -177,7 +205,7 @@ main {
     <button class={[i === slideIndex && 'active']} onclick={() => slideElm?.style.setProperty('--current-slide', String(slideIndex=i))} aria-label={`${i + 1}枚目の画像へ移動`}></button>
   {/each}</div>
 
-  <h1 class='catchphrase lang-ja'>高校生から発信する、新しい名護</h1>
+  <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
 </div>
 
 <main>
