@@ -7,6 +7,10 @@
   --size-main-margin-lr: 30px;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   /* TODO: フォントの当て方を工夫する */
   font-family: 'Noto Sans JP', sans-serif;
