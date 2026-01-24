@@ -12,16 +12,13 @@ let { children } = $props();
 </svelte:head>
 
 <style>
-:root {
-  --header-height: 120px;
-  --brand-color: #00a1ab; /* テナント登録ボタンなどの色 */
-}
-
 .main-header {
   width: 100%;
   background: white;
   border-bottom: 1px solid #eee;
   font-family: sans-serif;
+  /* position: absolute; */
+  /* z-index: 90; */
 }
 
 .header-container {
@@ -78,7 +75,16 @@ let { children } = $props();
   padding: 4px 8px;
 }
 .search-box input {
-  border: none; outline: none;
+  border: none;
+  outline: none;
+  background-image: url('https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f50d.svg');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px;
+
+  padding-left: 40px;
+  height: 25px;
+  width: 300px;
 }
 
 /* 下段メインナビ */
@@ -108,6 +114,7 @@ let { children } = $props();
   align-items: center;
   padding: 10px 0;
   transition: background 0.2s;
+  gap: 7px;
 }
 
 .main-nav a:hover {
@@ -152,20 +159,19 @@ let { children } = $props();
       <div class="top-bar">
         <div class="search-box">
           <input type="text" placeholder="キーワードを入力" />
-          <button class="search-icon">🔍</button>
         </div>
       </div>
 
       <nav class="main-nav">
         <ul>
-          <li><a href='/about/'><span class="icon">🔰</span>ABOUT</a></li> <!-- FIXME: 仮 -->
-          <li><a href='/photo-contest/' title='フォトコンテストを見る'><span class="icon">📷</span>PHOTO CONTEST</a></li>
-          <li><a href='/short-movies/' title='動画を見る'><span class="icon">🎞️</span>SHORT MOVIES</a></li>
-          <li><a href='/routes/' title='観光ルートを見る'><span class="icon">🗺</span>ROUTES</a></li>
-          <li><a href='/activity/'><span class="icon">🚩</span>ACTIVITY</a></li> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
-          <li><a href='/contact/'><span class="icon">📞</span>CONTACT</a></li>
+          <li><a href='/about/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2139.svg' /></span>About us</a></li> <!-- FIXME: 仮 -->
+          <li><a href='/photo-contest/' title='フォトコンテストを見る'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f7.svg' /></span>Photo Contest</a></li>
+          <li><a href='/short-movies/' title='動画を見る'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f39e.svg' /></span>Short Movies</a></li>
+          <li><a href='/routes/' title='観光ルートを見る'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f5fa.svg' /></span>Routes</a></li>
+          <li><a href='/activity/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f6a9.svg' /></span>Activity</a></li> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
+          <li><a href='/contact/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4de.svg' /></span>Contact</a></li>
           <li><a href='https://www.instagram.com/nagocity_yc'><span class="icon"><enhanced:img src={Instagram_Glyph_Gradient} alt='Instagramのアイコン' /></span>Instagram</a></li>
-          <li><a href='/news/' title='最新のお知らせ一覧'><span class="icon">📰</span>NEWS</a></li>
+          <li><a href='/news/' title='最新のお知らせ一覧'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f0.svg' /></span>News</a></li>
         </ul>
       </nav>
     </div>
