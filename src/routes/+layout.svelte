@@ -32,6 +32,9 @@ let { children } = $props();
 }
 
 /* ロゴエリア */
+.logo-area {
+  margin: auto;
+}
 .logo-area .logo-link {
   display: flex;
   flex-direction: column;
@@ -40,6 +43,7 @@ let { children } = $props();
   text-decoration: none;
   color: #005691;
   margin-right: 30px;
+  min-width: 200px;
 }
 .logo-img {
   height: 60px;
@@ -115,18 +119,20 @@ let { children } = $props();
   margin-bottom: 5px;
 }
 
-.main-nav .icon img,enhanced:img {
-  /* 親要素に対しての最大サイズを指定 */
-  max-width: 60%;
-  max-height: 80%;
-
+.main-nav .icon, .icon img, .icon enhanced\:img {
   /* アスペクト比を維持するための設定 */
-  width: auto;
-  height: auto;
+  width: 30px;
+  height: 30px;
+  font-size: 23px;
+}
 
+.main-nav .icon {
+  padding-bottom: 10px;
   /* 中央寄せにしたい場合（任意） */
   display: block;
   margin: auto;
+  text-align:center;
+  align-content: center;
 }
 </style>
 

@@ -46,7 +46,7 @@ setInterval(() => {
   flex-shrink: 0;
 }
 
-.slide > img,enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
+.slide > img, .slide-mov > enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
   width: 100%;
   height: 100%;
   object-fit: cover;
