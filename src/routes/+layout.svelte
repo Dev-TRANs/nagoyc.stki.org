@@ -141,6 +141,77 @@ let { children } = $props();
   text-align:center;
   align-content: center;
 }
+
+/* =========================
+   モバイル用レイアウト
+========================= */
+@media (max-width: 768px) {
+
+  /* 全体を縦積みに */
+  .header-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* ===== 1段目 ===== */
+  .logo-area {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .logo-area .logo-link {
+    min-width: auto;
+    margin-right: 0;
+  }
+
+  .logo-img {
+    height: 45px; /* 少し小さく */
+  }
+
+  .nav-content {
+    width: 100%;
+    gap: 0;
+  }
+
+  .top-bar {
+    justify-content: center;
+    padding: 5px 10px 10px;
+  }
+
+  .search-box input {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  /* ===== 2段目 main-nav ===== */
+  .main-nav {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .main-nav ul {
+    max-width: 100%;
+    overflow-x: auto;
+    gap: 0;
+  }
+
+  .main-nav li {
+    flex: 0 0 120px;  /* 固定幅で横スクロール */
+    border-left: 1px dashed #ddd;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+    padding: 12px 5px;
+  }
+
+  .main-nav .icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+
 </style>
 
 <header class="main-header">
