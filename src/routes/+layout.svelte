@@ -1,10 +1,9 @@
 <script lang="ts">
-import favicon from '$lib/assets/favicon.png';
-import Instagram_Glyph_White from '$lib/assets/Instagram_Glyph_White.svg';
-import Instagram_Glyph_Gradient from '$lib/assets/Instagram_Glyph_Gradient.png?enhanced'
-import '../app.css';
+  import favicon from '$lib/assets/favicon.png';
+  import Instagram_Glyph_Gradient from '$lib/assets/Instagram_Glyph_Gradient.png?enhanced'
+  import '../app.css';
 
-let { children } = $props();
+  let { children } = $props();
 </script>
 
 <svelte:head>
@@ -12,60 +11,74 @@ let { children } = $props();
 </svelte:head>
 
 <style>
+/* =============================
+   HEADER BASE
+============================= */
 .main-header {
   width: 100%;
   background: white;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e5e5e5;
   font-family: sans-serif;
-  /* position: absolute; */
-  /* z-index: 90; */
 }
 
 .header-container {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  padding: 10px 20px;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 40px;
 }
 
-/* ロゴエリア */
+/* =============================
+   LOGO
+============================= */
 .logo-area {
-  margin: auto;
+  flex-shrink: 0;
 }
-.logo-area .logo-link {
+
+.logo-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align:center;
+  text-align: center;
   text-decoration: none;
   color: #005691;
-  margin-right: 30px;
-  min-width: 200px;
-}
-.logo-img {
-  height: 60px;
-  margin-bottom: 5px;
-}
-.site-name-jp {
-  font-size: 10px;
-  margin-top: 5px;
 }
 
-/* 右側コンテンツ全体 */
+.logo-img {
+  height: 60px;
+  margin-bottom: 6px;
+}
+
+.site-name-en {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.site-name-jp {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+/* =============================
+   RIGHT CONTENT
+============================= */
 .nav-content {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 15px;
   min-width: 0;
 }
 
-/* 上段ツールバー */
+/* =============================
+   TOP BAR (検索用 - 今は非表示)
+============================= */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px;
 }
 
 .search-box {
@@ -74,6 +87,7 @@ let { children } = $props();
   border-radius: 4px;
   padding: 4px 8px;
 }
+
 .search-box input {
   border: none;
   outline: none;
@@ -81,27 +95,30 @@ let { children } = $props();
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: 20px;
-
   padding-left: 40px;
-  height: 25px;
-  width: 300px;
+  height: 28px;
+  width: 260px;
 }
 
-/* 下段メインナビ */
+/* =============================
+   NAV (PC)
+============================= */
 .main-nav ul {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
   justify-content: space-between;
-  overflow-x: scroll;
-  max-width: 90%;
 }
 
 .main-nav li {
   flex: 1;
   text-align: center;
-  border-left: 1px dashed #ccc;
+  border-left: 1px dashed #ddd;
+}
+
+.main-nav li:first-child {
+  border-left: none;
 }
 
 .main-nav a {
@@ -112,97 +129,80 @@ let { children } = $props();
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0;
+  padding: 12px 5px;
   transition: background 0.2s;
-  gap: 7px;
+  gap: 6px;
 }
 
 .main-nav a:hover {
-  background-color: #f9f9f9;
+  background-color: #f5f9fc;
 }
 
-.main-nav .icon {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.main-nav .icon, .icon img, .icon enhanced\:img {
-  /* アスペクト比を維持するための設定 */
+.main-nav .icon,
+.main-nav .icon img,
+.main-nav .icon enhanced\:img {
   width: 30px;
   height: 30px;
-  font-size: 23px;
 }
 
 .main-nav .icon {
-  padding-bottom: 10px;
-  /* 中央寄せにしたい場合（任意） */
   display: block;
-  margin: auto;
-  text-align:center;
-  align-content: center;
+  margin: 0 auto;
 }
 
-/* =========================
-   モバイル用レイアウト
-========================= */
+/* =============================
+   MOBILE
+============================= */
 @media (max-width: 768px) {
 
-  /* 全体を縦積みに */
   .header-container {
     flex-direction: column;
-    padding: 0;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px 0;
   }
 
-  /* ===== 1段目 ===== */
   .logo-area {
-    margin: 0;
-    padding: 10px;
-  }
-
-  .logo-area .logo-link {
-    min-width: auto;
-    margin-right: 0;
+    margin: 0 auto;
   }
 
   .logo-img {
-    height: 45px; /* 少し小さく */
+    height: 45px;
   }
 
   .nav-content {
     width: 100%;
-    gap: 0;
   }
 
+  /* 復活しても自然に中央寄せになる */
   .top-bar {
     justify-content: center;
-    padding: 5px 10px 10px;
+    padding: 5px 10px;
   }
 
   .search-box input {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
   }
 
-  /* ===== 2段目 main-nav ===== */
   .main-nav {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
   }
 
   .main-nav ul {
-    max-width: 100%;
     overflow-x: auto;
-    gap: 0;
+    justify-content: flex-start;
   }
 
   .main-nav li {
-    flex: 0 0 120px;  /* 固定幅で横スクロール */
-    border-left: 1px dashed #ddd;
+    flex: 0 0 120px;
+    border-left: 1px dashed #eee;
   }
 
   .main-nav a {
     font-size: 12px;
-    padding: 12px 5px;
+    padding: 14px 5px;
   }
 
   .main-nav .icon {
@@ -210,42 +210,45 @@ let { children } = $props();
     height: 26px;
   }
 }
-
-
 </style>
 
 <header class="main-header">
   <div class="header-container">
+
     <div class="logo-area">
       <a href="/" class="logo-link">
         <img src={favicon} alt="名護ユースクリエイティブ" class="logo-img" />
-        <div class="logo-text">
-          <div class="site-name-en">Nagocity Youth Creative</div>
-          <div class="site-name-jp">名護ユースクリエイティブ</div>
-        </div>
+        <div class="site-name-en">Nagocity Youth Creative</div>
+        <div class="site-name-jp">名護ユースクリエイティブ</div>
       </a>
     </div>
 
     <div class="nav-content">
+
+      <!-- 🔽 検索バー（将来復活用） -->
+      <!--
       <div class="top-bar">
         <div class="search-box">
           <input type="text" placeholder="キーワードを入力" />
         </div>
       </div>
+      -->
 
       <nav class="main-nav">
         <ul>
-          <li><a href='/about/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2139.svg' /></span>About us</a></li> <!-- FIXME: 仮 -->
-          <li><a href='/photo-contest/' title='フォトコンテストを見る'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f7.svg' /></span>Photo Contest</a></li>
-          <li><a href='/short-movies/' title='動画を見る'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f39e.svg' /></span>Short Movies</a></li>
-          <li><a href='/routes/' title='観光ルートを見る'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f5fa.svg' /></span>Routes</a></li>
-          <li><a href='/activity/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f6a9.svg' /></span>Activity</a></li> <!-- FIXME: ヘッダーに含めるリンクじゃない? -->
+          <li><a href='/about/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2139.svg' /></span>About us</a></li>
+          <li><a href='/photo-contest/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f7.svg' /></span>Photo Contest</a></li>
+          <li><a href='/short-movies/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f39e.svg' /></span>Short Movies</a></li>
+          <li><a href='/routes/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f5fa.svg' /></span>Routes</a></li>
+          <li><a href='/activity/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f6a9.svg' /></span>Activity</a></li>
           <li><a href='/contact/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4de.svg' /></span>Contact</a></li>
           <li><a href='https://www.instagram.com/nagocity_yc'><span class="icon"><enhanced:img src={Instagram_Glyph_Gradient} alt='Instagramのアイコン' /></span>Instagram</a></li>
-          <li><a href='/news/' title='最新のお知らせ一覧'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f0.svg' /></span>News</a></li>
+          <li><a href='/news/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f0.svg' /></span>News</a></li>
         </ul>
       </nav>
+
     </div>
+
   </div>
 </header>
 
