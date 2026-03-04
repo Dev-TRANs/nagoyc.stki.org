@@ -158,12 +158,12 @@
   .header-container {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
-    padding: 10px 0;
+    gap: 0;             
+    padding: 0;          
   }
 
   .logo-area {
-    margin: 0 auto;
+    margin: 10px auto;   
   }
 
   .logo-img {
@@ -187,7 +187,7 @@
 
   .main-nav {
     border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-bottom: none;
   }
 
   .main-nav ul {
