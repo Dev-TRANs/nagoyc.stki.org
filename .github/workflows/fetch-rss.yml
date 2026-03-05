@@ -1,0 +1,51 @@
+name: Fetch RSS
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # 毎日日本時間0時（UTC15時）
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch RSS and save as JSON
+        run: |
+          node -e "
+          const https = require('https');
+          https.get('https://nagoyouth.ti-da.net/index.xml', res => {
+            let xml = '';
+            res.on('data', d => xml += d);
+            res.on('end', () => {
+              const items = [];
+              const matches = xml.matchAll(/<item>([\s\S]*?)<\/item>/g);
+              for (const match of matches) {
+                const item = match[1];
+                const title = (item.match(/<title>([\s\S]*?)<\/title>/) || [])[1]?.trim() ?? '';
+                const link = (item.match(/<link>([\s\S]*?)<\/link>/) || [])[1]?.trim() ?? '';
+                const description = (item.match(/<description>([\s\S]*?)<\/description>/) || [])[1]?.trim() ?? '';
+                const pubDate = (item.match(/<pubDate>([\s\S]*?)<\/pubDate>/) || [])[1]?.trim() ?? '';
+                const image = (item.match(/<enclosure url=\"([^\"]+)\"/) || [])[1] ?? null;
+                const dateObj = new Date(pubDate);
+                const formattedDate = !isNaN(dateObj.getTime())
+                  ? dateObj.getFullYear() + '/' + String(dateObj.getMonth()+1).padStart(2,'0') + '/' + String(dateObj.getDate()).padStart(2,'0')
+                  : pubDate;
+                const decoded = description.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'\"');
+                const short = decoded.length > 100 ? decoded.slice(0,100) + '…' : decoded;
+                items.push({ title, link, description: short, pubDate: formattedDate, image });
+              }
+              require('fs').writeFileSync('src/lib/news.json', JSON.stringify(items, null, 2));
+              console.log('Saved', items.length, 'items');
+            });
+          });
+          "
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add src/lib/news.json
+          git diff --cached --quiet || git commit -m "chore: update news.json"
+          git push
