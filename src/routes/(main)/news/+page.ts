@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 
 interface NewsItem {
   title: string;
@@ -8,14 +8,15 @@ interface NewsItem {
   image?: string;
 }
 
-export const load: PageServerLoad = async () => {
-  const RSS_URL = 'https://nagoyouth.ti-da.net/index.xml';
-
+export const load: PageLoad = async ({ fetch }) => {
   try {
-    const res = await fetch(RSS_URL);
-    const xml = await res.text();
+    const res = await fetch('/api/rss');
 
-    // XMLをパース
+    if (!res.ok) {
+      return { items: [] };
+    }
+
+    const xml = await res.text();
     const items: NewsItem[] = [];
     const itemMatches = xml.matchAll(/<item>([\s\S]*?)<\/item>/g);
 
@@ -28,13 +29,11 @@ export const load: PageServerLoad = async () => {
       const pubDate = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]?.trim() ?? '';
       const image = item.match(/<enclosure url="([^"]+)"/)?.[1] ?? undefined;
 
-      // 日付フォーマット変換 (例: "Thu, 18 Dec 2025 21:46:09 +0900" → "2025/12/18")
       const dateObj = new Date(pubDate);
       const formattedDate = !isNaN(dateObj.getTime())
         ? `${dateObj.getFullYear()}/${String(dateObj.getMonth() + 1).padStart(2, '0')}/${String(dateObj.getDate()).padStart(2, '0')}`
         : pubDate;
 
-      // descriptionのHTMLエンティティを簡易デコード
       const decodedDesc = description
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
@@ -42,7 +41,6 @@ export const load: PageServerLoad = async () => {
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'");
 
-      // 100文字で切り詰め
       const shortDesc = decodedDesc.length > 100 ? decodedDesc.slice(0, 100) + '…' : decodedDesc;
 
       items.push({ title, link, description: shortDesc, pubDate: formattedDate, image });
@@ -50,7 +48,6 @@ export const load: PageServerLoad = async () => {
 
     return { items };
   } catch (e) {
-    console.error('RSS fetch failed:', e);
     return { items: [] };
   }
 };
