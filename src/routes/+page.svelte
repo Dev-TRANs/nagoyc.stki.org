@@ -62,7 +62,7 @@ setInterval(() => goTo(slideIndex + 1), 5000);
   transition: transform 0.5s;
 }
 
-.slide > img, .slide-mov > enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
+.slide img, .slide > picture, .slide > enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -189,7 +189,6 @@ main {
 
 <Title />
 
-<!-- TODO: 画像入れる、スライドショー -->
 <div class='main-visual'>
   <div class='slide-container'>
     {#if isVisible(0)}<div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' loading='eager' /></div>{/if}
