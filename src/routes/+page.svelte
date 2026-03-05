@@ -66,6 +66,7 @@ setInterval(() => goTo(slideIndex + 1), 5000);
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: bottom;
   user-select: none;
 }
 
