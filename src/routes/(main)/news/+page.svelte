@@ -78,7 +78,7 @@
   .card-desc {
     font-size: 0.875rem;
     color: #555;
-    margin: 10;
+    margin: 0;
     line-height: 1.6;
   }
 
@@ -91,11 +91,5 @@
     .card-container {
       grid-template-columns: 1fr;
     }
-  }
-  
-  h2::after {
-    left: 0;
-    transform: none;
-    width: 5em;
   }
 </style>
