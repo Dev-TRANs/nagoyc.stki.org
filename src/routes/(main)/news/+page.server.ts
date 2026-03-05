@@ -8,7 +8,7 @@ interface NewsItem {
   image?: string;
 }
 
-export const load: PageServerLoad = async ({ fetch }) => {
+export const load: PageServerLoad = async () => {
   const RSS_URL = 'https://nagoyouth.ti-da.net/index.xml';
 
   try {
