@@ -15,13 +15,27 @@
 <script lang="ts">
 import Title from '$lib/components/Title.svelte';
 
-let slideElm: HTMLDivElement|undefined = $state();
-let totalSlides = $derived<number>(slideElm?.children.length ?? 0);
+const totalSlides = 7;
 let slideIndex = $state(0);
 
-setInterval(() => {
-  slideElm?.style.setProperty('--current-slide', String(slideIndex < totalSlides-1 ? ++slideIndex : slideIndex=0));
-}, 5000);
+function isVisible(i: number): boolean {
+  const prev = (slideIndex - 1 + totalSlides) % totalSlides;
+  const next = (slideIndex + 1) % totalSlides;
+  return i === slideIndex || i === prev || i === next;
+}
+
+function offset(i: number): number {
+  const raw = i - slideIndex;
+  if (raw > totalSlides / 2) return raw - totalSlides;
+  if (raw < -totalSlides / 2) return raw + totalSlides;
+  return raw;
+}
+
+function goTo(index: number) {
+  slideIndex = (index + totalSlides) % totalSlides;
+}
+
+setInterval(() => goTo(slideIndex + 1), 5000);
 </script>
 
 <style>
@@ -33,17 +47,19 @@ setInterval(() => {
 
 .slide-container {
   z-index: 100;
-  --current-slide: 0; /* JavaScriptから変更される */
-  display: flex;
-  transition: transform 0.5s;
-  transform: translateX(calc(var(--current-slide) * -100%));
+  position: relative;
+  width: 100%;
+  height: 100lvh;
+  overflow: hidden;
 }
 
 .slide {
+  position: absolute;
+  top: 0;
   width: 100lvw;
   height: 100lvh;
   overflow: hidden;
-  flex-shrink: 0;
+  transition: transform 0.5s;
 }
 
 .slide > img, .slide-mov > enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
@@ -174,36 +190,21 @@ main {
 
 <!-- TODO: 画像入れる、スライドショー -->
 <div class='main-visual'>
-  <div class='slide-container' bind:this={slideElm}>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' />
-    </div>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' />
-    </div>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' />
-    </div>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' />
-    </div>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' />
-    </div>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' />
-    </div>
-    <div class='slide'>
-      <enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' />
-    </div>
-
+  <div class='slide-container'>
+    {#if isVisible(0)}<div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' loading='eager' /></div>{/if}
+    {#if isVisible(1)}<div class='slide' style="transform: translateX({offset(1) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' loading='lazy' /></div>{/if}
+    {#if isVisible(2)}<div class='slide' style="transform: translateX({offset(2) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' loading='lazy' /></div>{/if}
+    {#if isVisible(3)}<div class='slide' style="transform: translateX({offset(3) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' loading='lazy' /></div>{/if}
+    {#if isVisible(4)}<div class='slide' style="transform: translateX({offset(4) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' loading='lazy' /></div>{/if}
+    {#if isVisible(5)}<div class='slide' style="transform: translateX({offset(5) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' loading='lazy' /></div>{/if}
+    {#if isVisible(6)}<div class='slide' style="transform: translateX({offset(6) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>{/if}
   </div>
   <div class='arrow-down'><!-- スクロールのマーカー --></div>
-  <!-- スライド用、TODO: 自動切り替え -->
-  <button type='button' class='slide-move' onclick={() => { slideElm?.style.setProperty('--current-slide', String(slideIndex > 0 ? --slideIndex : slideIndex=totalSlides-1)) }} aria-label='前の画像に移動'><div class='arrow-left'></div></button>
-  <button type='button' class='slide-move' onclick={() => { slideElm?.style.setProperty('--current-slide', String(slideIndex < totalSlides-1 ? ++slideIndex : slideIndex=0)) }} aria-label='次の画像に移動'><div class='arrow-right'></div></button>
+  <!-- スライド用 -->
+  <button type='button' class='slide-move' onclick={() => goTo(slideIndex - 1)} aria-label='前の画像に移動'><div class='arrow-left'></div></button>
+  <button type='button' class='slide-move' onclick={() => goTo(slideIndex + 1)} aria-label='次の画像に移動'><div class='arrow-right'></div></button>
   <div class='slide-sel'>{#each Array(totalSlides) as _, i}
-    <button class={[i === slideIndex && 'active']} onclick={() => slideElm?.style.setProperty('--current-slide', String(slideIndex=i))} aria-label={`${i + 1}枚目の画像へ移動`}></button>
+    <button class={[i === slideIndex && 'active']} onclick={() => goTo(i)} aria-label={`${i + 1}枚目の画像へ移動`}></button>
   {/each}</div>
 
   <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
