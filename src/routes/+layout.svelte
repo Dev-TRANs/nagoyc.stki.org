@@ -210,6 +210,32 @@
     height: 26px;
   }
 }
+
+/* =============================
+   FOOTER BASE
+============================= */
+
+.footer-inner {
+  margin-bottom: 5rem; /* mb-20 */
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.footer-credit {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+.footer-brand {
+  font-family: 'Allerta Stencil', sans-serif;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
 </style>
 
 <header class="main-header">
@@ -253,3 +279,14 @@
 </header>
 
 {@render children()}
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-credit">
+      Created by 
+      <a href="https://trans.stki.org/" class="footer-link">
+        <span class="footer-brand">TRANs</span>
+      </a>
+    </p>
+  </div>
+</footer>
