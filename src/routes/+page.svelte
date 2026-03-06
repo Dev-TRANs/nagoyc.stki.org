@@ -76,7 +76,7 @@ setInterval(() => goTo(slideIndex + 1), 5000);
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 400;
+  z-index: 1500;
   --color: #eee5;
 }
 
@@ -115,7 +115,7 @@ setInterval(() => goTo(slideIndex + 1), 5000);
 .main-visual .arrow-left,.arrow-right {
   position: absolute;
   margin: auto;
-  z-index: 420;
+  z-index: 1520;
   --color: #9997;
   transition: border-color 0.3s;
 }
@@ -200,15 +200,14 @@ main {
     {#if isVisible(5)}<div class='slide' style="transform: translateX({offset(5) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' loading='lazy' /></div>{/if}
     {#if isVisible(6)}<div class='slide' style="transform: translateX({offset(6) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>{/if}
   </div>
-  <div class='arrow-down'><!-- スクロールのマーカー --></div>
+  <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
+  <!-- <div class='arrow-down'></div> -->
   <!-- スライド用 -->
   <button type='button' class='slide-move' onclick={() => goTo(slideIndex - 1)} aria-label='前の画像に移動'><div class='arrow-left'></div></button>
   <button type='button' class='slide-move' onclick={() => goTo(slideIndex + 1)} aria-label='次の画像に移動'><div class='arrow-right'></div></button>
   <div class='slide-sel'>{#each Array(totalSlides) as _, i}
     <button class={[i === slideIndex && 'active']} onclick={() => goTo(i)} aria-label={`${i + 1}枚目の画像へ移動`}></button>
   {/each}</div>
-
-  <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
 </div>
 
 <main>
