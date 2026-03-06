@@ -211,6 +211,10 @@ let { children } = $props();
   }
 }
 
+.pad {
+  flex-grow: 1;
+}
+
 /* =============================
    FOOTER BASE
 ============================= */
@@ -279,6 +283,7 @@ let { children } = $props();
 </header>
 
 {@render children()}
+<div class='pad'></div>
 
 <footer>
   <div class="footer-inner">
