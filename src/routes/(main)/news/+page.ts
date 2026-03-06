@@ -51,3 +51,6 @@ export const load: PageLoad = async ({ fetch }) => {
     return { items: [] };
   }
 };
+
+export const prerender = false;
+export const ssr = false;
