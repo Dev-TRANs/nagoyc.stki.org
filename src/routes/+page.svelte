@@ -18,12 +18,6 @@ import Title from '$lib/components/Title.svelte';
 const totalSlides = 7;
 let slideIndex = $state(0);
 
-function isVisible(i: number): boolean {
-  const prev = (slideIndex - 1 + totalSlides) % totalSlides;
-  const next = (slideIndex + 1) % totalSlides;
-  return i === slideIndex || i === prev || i === next;
-}
-
 function offset(i: number): number {
   const raw = i - slideIndex;
   if (raw > totalSlides / 2) return raw - totalSlides;
@@ -183,13 +177,13 @@ main {
 
 <div class='main-visual'>
   <div class='slide-container'>
-    {#if isVisible(0)}<div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' /></div>{/if}
-    {#if isVisible(1)}<div class='slide' style="transform: translateX({offset(1) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' loading='lazy' /></div>{/if}
-    {#if isVisible(2)}<div class='slide' style="transform: translateX({offset(2) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' loading='lazy' /></div>{/if}
-    {#if isVisible(3)}<div class='slide' style="transform: translateX({offset(3) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' loading='lazy' /></div>{/if}
-    {#if isVisible(4)}<div class='slide' style="transform: translateX({offset(4) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' loading='lazy' /></div>{/if}
-    {#if isVisible(5)}<div class='slide' style="transform: translateX({offset(5) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' loading='lazy' /></div>{/if}
-    {#if isVisible(6)}<div class='slide' style="transform: translateX({offset(6) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>{/if}
+    <div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' /></div>
+    <div class='slide' style="transform: translateX({offset(1) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' loading='lazy' /></div>
+    <div class='slide' style="transform: translateX({offset(2) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' loading='lazy' /></div>
+    <div class='slide' style="transform: translateX({offset(3) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' loading='lazy' /></div>
+    <div class='slide' style="transform: translateX({offset(4) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' loading='lazy' /></div>
+    <div class='slide' style="transform: translateX({offset(5) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' loading='lazy' /></div>
+    <div class='slide' style="transform: translateX({offset(6) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>
   </div>
   <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
   <!-- スライド用 -->
