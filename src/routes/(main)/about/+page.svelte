@@ -2,7 +2,9 @@
   import Title from '$lib/components/Title.svelte';
 </script>
 
-<Title title='About us' />
+<Title title='About Us' />
+
+<h1>About Us</h1>
 
 <div class="about">
 
@@ -93,11 +95,6 @@
   left: 0;
   transform: none;
   width: 3em;
-}
-
-.about p {
-  line-height: 1.9;
-  margin-bottom: 0.8em;
 }
 
 .about h2 {

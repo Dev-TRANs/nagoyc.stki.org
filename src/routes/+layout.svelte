@@ -236,12 +236,12 @@
 
       <nav class="main-nav">
         <ul>
-          <li><a href='/about/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2139.svg' /></span>About us</a></li>
+          <li><a href='/about/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2139.svg' /></span>About Us</a></li>
           <li><a href='https://www.nagoyc.jp/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f7.svg' /></span>Photo Contest</a></li>
           <li><a href='/short-movies/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f39e.svg' /></span>Short Movies</a></li>
           <li><a href='/routes/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f5fa.svg' /></span>Routes</a></li>
           <li><a href='/activity/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f6a9.svg' /></span>Activity</a></li>
-          <li><a href='/contact/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4de.svg' /></span>Contact</a></li>
+          <li><a href='https://www.nagoyc.jp/Contact'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4de.svg' /></span>Contact</a></li>
           <li><a href='https://www.instagram.com/nagocity_yc'><span class="icon"><enhanced:img src={Instagram_Glyph_Gradient} alt='Instagramのアイコン' /></span>Instagram</a></li>
           <li><a href='/news/'><span class="icon"><img src='https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4f0.svg' /></span>News</a></li>
         </ul>

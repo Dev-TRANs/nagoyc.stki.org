@@ -6,7 +6,7 @@
 </script>
 
 <Title title='News' />
-<h1>最新のお知らせ</h1>
+<h1>News</h1>
 
 {#if items.length === 0}
   <p class="empty">記事を取得できませんでした。</p>

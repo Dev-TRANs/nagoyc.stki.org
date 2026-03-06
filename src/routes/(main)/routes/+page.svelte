@@ -18,4 +18,12 @@ import Title from '$lib/components/Title.svelte';
 </script>
 
 <Title title='Routes' />
-<ComingSoon />
+
+<h1>Routes</h1>
+
+<p>現在、名護の地域ルートを紹介する</p>
+<p>新しい企画を準備しています。</p>
+<p>地域の風景やスポットを</p>
+<p>若者の視点で発信するプロジェクトを</p>
+<p>企画中です。</p>
+<p>詳細は今後公開予定です。</p>

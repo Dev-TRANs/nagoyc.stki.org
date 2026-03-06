@@ -18,4 +18,10 @@ import Title from '$lib/components/Title.svelte';
 </script>
 
 <Title title='Short Movies' />
-<ComingSoon />
+
+<h1>Short Movies</h1>
+
+<p>このページでは、今後</p>
+<p>Nago City Youth Creativeの映像企画や</p>
+<p>ショートムービー作品を掲載予定です。</p>
+<p>詳細は今後公開予定です。</p>
