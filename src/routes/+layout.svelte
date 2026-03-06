@@ -1,9 +1,9 @@
 <script lang="ts">
-  import favicon from '$lib/assets/favicon.png';
-  import Instagram_Glyph_Gradient from '$lib/assets/Instagram_Glyph_Gradient.png?enhanced'
-  import '../app.css';
+import favicon from '$lib/assets/favicon.png';
+import Instagram_Glyph_Gradient from '$lib/assets/Instagram_Glyph_Gradient.png';
+import '../app.css';
 
-  let { children } = $props();
+let { children } = $props();
 </script>
 
 <svelte:head>
@@ -158,12 +158,12 @@
   .header-container {
     flex-direction: column;
     align-items: stretch;
-    gap: 0;             
-    padding: 0;          
+    gap: 0;
+    padding: 0;
   }
 
   .logo-area {
-    margin: 10px auto;   
+    margin: 10px auto;
   }
 
   .logo-img {
@@ -283,7 +283,7 @@
 <footer>
   <div class="footer-inner">
     <p class="footer-credit">
-      Created by 
+      Created by
       <a href="https://trans.stki.org/" class="footer-link" target="_blank" rel="noopener">
         <span class="footer-brand">TRANs</span>
       </a>
