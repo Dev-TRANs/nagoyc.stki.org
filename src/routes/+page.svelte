@@ -183,7 +183,7 @@ main {
 
 <div class='main-visual'>
   <div class='slide-container'>
-    {#if isVisible(0)}<div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' loading='eager' /></div>{/if}
+    {#if isVisible(0)}<div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' /></div>{/if}
     {#if isVisible(1)}<div class='slide' style="transform: translateX({offset(1) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' loading='lazy' /></div>{/if}
     {#if isVisible(2)}<div class='slide' style="transform: translateX({offset(2) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' loading='lazy' /></div>{/if}
     {#if isVisible(3)}<div class='slide' style="transform: translateX({offset(3) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' loading='lazy' /></div>{/if}
