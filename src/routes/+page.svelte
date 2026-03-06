@@ -70,16 +70,6 @@ setInterval(() => goTo(slideIndex + 1), 5000);
   user-select: none;
 }
 
-.main-visual > .arrow-down {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 1500;
-  --color: #eee5;
-}
-
 .slide-move {
   height: 50lvh;
   width: 70px;
@@ -94,6 +84,8 @@ setInterval(() => goTo(slideIndex + 1), 5000);
   padding: unset;
 
   transition: background-color 0.3s;
+
+  z-index: 2000;
 
   &:has(.arrow-left) {
     left: 15px;
@@ -115,7 +107,6 @@ setInterval(() => goTo(slideIndex + 1), 5000);
 .main-visual .arrow-left,.arrow-right {
   position: absolute;
   margin: auto;
-  z-index: 1520;
   --color: #9997;
   transition: border-color 0.3s;
 }
@@ -201,7 +192,6 @@ main {
     {#if isVisible(6)}<div class='slide' style="transform: translateX({offset(6) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>{/if}
   </div>
   <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
-  <!-- <div class='arrow-down'></div> -->
   <!-- スライド用 -->
   <button type='button' class='slide-move' onclick={() => goTo(slideIndex - 1)} aria-label='前の画像に移動'><div class='arrow-left'></div></button>
   <button type='button' class='slide-move' onclick={() => goTo(slideIndex + 1)} aria-label='次の画像に移動'><div class='arrow-right'></div></button>
