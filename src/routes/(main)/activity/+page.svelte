@@ -18,7 +18,7 @@ import Title from '$lib/components/Title.svelte';
 
 <div class="activity">
 
-<h2 class='lang-ja'><a href="https://www.nagoyc.jp/Contact">Photo Contest</a></h2>
+<h2 class='lang-ja'><a href="https://www.nagoyc.jp/Contact" target="_blank" rel="noopener">Photo Contest</a></h2>
 <p>地域ごとのテーマをもとに、</p>
 <p>写真で名護の魅力を見つめ直す企画。</p>
 
