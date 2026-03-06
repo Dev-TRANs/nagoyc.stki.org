@@ -15,21 +15,17 @@
 <script lang="ts">
 import Title from '$lib/components/Title.svelte';
 
+let slideElm: HTMLDivElement|undefined = $state();
 const totalSlides = 7;
 let slideIndex = $state(0);
-
-function offset(i: number): number {
-  const raw = i - slideIndex;
-  if (raw > totalSlides / 2) return raw - totalSlides;
-  if (raw < -totalSlides / 2) return raw + totalSlides;
-  return raw;
-}
 
 function goTo(index: number) {
   slideIndex = (index + totalSlides) % totalSlides;
 }
 
 setInterval(() => goTo(slideIndex + 1), 5000);
+
+$effect(() => slideElm?.style.setProperty('--current-slide', String(slideIndex)));
 </script>
 
 <style>
@@ -41,19 +37,19 @@ setInterval(() => goTo(slideIndex + 1), 5000);
 
 .slide-container {
   z-index: 100;
-  position: relative;
   width: 100%;
   height: 100lvh;
-  overflow: hidden;
+  --current-slide: 0; /* JavaScriptから変更される */
+  transition: transform 0.5s;
+  transform: translateX(calc(var(--current-slide) * -100%));
+  display: flex;
 }
 
 .slide {
-  position: absolute;
-  top: 0;
   width: 100lvw;
   height: 100lvh;
   overflow: hidden;
-  transition: transform 0.5s;
+  flex-shrink: 0;
 }
 
 .slide img, .slide > picture, .slide > enhanced\:img { /* ここで警告に釣られてimgを削除すると壊れる */
@@ -176,14 +172,14 @@ main {
 <Title />
 
 <div class='main-visual'>
-  <div class='slide-container'>
-    <div class='slide' style="transform: translateX({offset(0) * 100}%)"><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' /></div>
-    <div class='slide' style="transform: translateX({offset(1) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' loading='lazy' /></div>
-    <div class='slide' style="transform: translateX({offset(2) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' loading='lazy' /></div>
-    <div class='slide' style="transform: translateX({offset(3) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' loading='lazy' /></div>
-    <div class='slide' style="transform: translateX({offset(4) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' loading='lazy' /></div>
-    <div class='slide' style="transform: translateX({offset(5) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' loading='lazy' /></div>
-    <div class='slide' style="transform: translateX({offset(6) * 100}%)"><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>
+  <div class='slide-container' bind:this={slideElm}>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/1000001838.jpg' alt='main visual 1' /></div>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/IMG_0139.jpg' alt='main visual 2' loading='lazy' /></div>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/IMG_0231.jpg' alt='main visual 3' loading='lazy' /></div>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/IMG_0260.jpg' alt='main visual 4' loading='lazy' /></div>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/IMG_0308.jpg' alt='main visual 5' loading='lazy' /></div>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/IMG_0574.jpg' alt='main visual 6' loading='lazy' /></div>
+    <div class='slide'><enhanced:img src='$lib/assets/hero-images/IMG_0576.jpg' alt='main visual 7' loading='lazy' /></div>
   </div>
   <div class='catchphrase lang-ja'>高校生から発信する、新しい名護</div>
   <!-- スライド用 -->
